@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "description": "A web application",
   "main": "index.js",
+  "homepage": "DuBrowski.github.io/JS_Checkers",
   "scripts": {
-    "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
-    "compile:sass": "node-sass src/sass/main.scss dist/css/style.comp.css",
-    "concat:css": "concat -o dist/css/style.concat.css dist/css/style.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' dist/css/style.concat.css -o dist/css/style.prefix.css",
-    "compress:css": "node-sass dist/css/style.prefix.css dist/css/style.css --output-style compressed",
+    "watch:sass": "node-sass src/sass/main.scss docs/css/style.css -w",
+    "compile:sass": "node-sass src/sass/main.scss docs/css/style.comp.css",
+    "concat:css": "concat -o docs/css/style.concat.css docs/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' docs/css/style.concat.css -o docs/css/style.prefix.css",
+    "compress:css": "node-sass docs/css/style.prefix.css docs/css/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "webpack-server": "webpack-dev-server --mode development --open",
-    "start": "npm-run-all --parallel webpack-server watch:sass"
+    "start": "npm-run-all --parallel webpack-server watch:sass",
+    "deploy": "gh-pages -d docs"
   },
   "author": "Kyle DuBray",
   "license": "ISC",
@@ -33,6 +35,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "gh-pages": "^2.1.0",
     "jquery": "^3.4.1"
   }
 }
