@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A web application",
   "main": "index.js",
-  "homepage": "DuBrowski.github.io/JS_Checkers",
+  "homepage": "DuBrowski.github.io/Checkers",
   "scripts": {
     "watch:sass": "node-sass src/sass/main.scss docs/css/style.css -w",
     "compile:sass": "node-sass src/sass/main.scss docs/css/style.comp.css",
