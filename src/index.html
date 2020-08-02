@@ -1,215 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Arvo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
     <title>checkeRs</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1 class="heading__main">Welcome to checkeRs</h1>
+      <h1 class="heading__main">Welcome to checkeRs</h1>
     </header>
     <div class="interface">
-        <div class="board">
-            <div class="board__square--red square__1-1">
-
-            </div>
-            <div class="board__square--black" id= "square__1-2">
-                <div class="checker__red" id="checker__red--1"></div>
-            </div>
-            <div class="board__square--red" id= "square__1-3">
-
-            </div>
-            <div class="board__square--black" id= "square__1-4">
-                <div class="checker__red" id="checker__red--2"></div>
-            </div>
-            <div class="board__square--red" id= "square__1-5">
-                
-            </div>
-            <div class="board__square--black" id= "square__1-6">
-                <div class="checker__red" id="checker__red--3"></div>
-            </div>
-            <div class="board__square--red" id= "square__1-7">
-
-            </div>
-            <div class="board__square--black" id= "square__1-8">
-                <div class="checker__red" id="checker__red--4"></div>
-            </div>
-            <div class="board__square--black" id= "square__2-1">
-                <div class="checker__red" id="checker__red--5"></div>
-            </div>
-            <div class="board__square--red" id= "square__2-2">
-
-            </div>
-            <div class="board__square--black" id= "square__2-3">
-                <div class="checker__red" id="checker__red--6"></div>
-            </div>
-            <div class="board__square--red" id= "square__2-4">
-
-            </div>
-            <div class="board__square--black" id= "square__2-5">
-                <div class="checker__red" id="checker__red--7"></div>
-            </div>
-            <div class="board__square--red" id= "square__2-6">
-
-            </div>
-            <div class="board__square--black" id= "square__2-7">
-                <div class="checker__red" id="checker__red--8"></div>
-            </div>
-            <div class="board__square--red" id= "square__2-8">
-
-            </div>
-            <div class="board__square--red" id= "square__3-1">
-
-            </div>
-            <div class="board__square--black" id= "square__3-2">
-                <div class="checker__red" id="checker__red--9"></div>
-            </div>
-            <div class="board__square--red" id= "square__3-3">
-
-            </div>
-            <div class="board__square--black" id= "square__3-4">
-                <div class="checker__red" id="checker__red--10"></div>
-            </div>
-            <div class="board__square--red" id= "square__3-5">
-
-            </div>
-            <div class="board__square--black" id= "square__3-6">
-                <div class="checker__red" id="checker__red--11"></div>
-            </div>
-            <div class="board__square--red" id= "square__3-7">
-
-            </div>
-            <div class="board__square--black" id= "square__3-8">
-                <div class="checker__red" id="checker__red--12"></div>
-            </div>
-            <div class="board__square--black" id= "square__4-1"></div>
-            <div class="board__square--red" id= "square__4-2">
-
-            </div>
-            <div class="board__square--black" id= "square__4-3">
-
-            </div>
-            <div class="board__square--red" id= "square__4-4">
-
-            </div>
-            <div class="board__square--black" id= "square__4-5">
-
-            </div>
-            <div class="board__square--red" id= "square__4-6">
-
-            </div>
-            <div class="board__square--black" id= "square__4-7">
-
-            </div>
-            <div class="board__square--red" id= "square__4-8">
-
-            </div>
-            <div class="board__square--red" id= "square__5-1">
-
-            </div>
-            <div class="board__square--black" id= "square__5-2">
-
-            </div>
-            <div class="board__square--red" id= "square__5-3">
-
-            </div>
-            <div class="board__square--black" id= "square__5-4">
-
-            </div>
-            <div class="board__square--red" id= "square__5-5">
-
-            </div>
-            <div class="board__square--black" id= "square__5-6">
-
-            </div>
-            <div class="board__square--red" id= "square__5-7">
-
-            </div>
-            <div class="board__square--black" id= "square__5-8">
-
-            </div>
-            <div class="board__square--black" id= "square__6-1">
-                <div class="checker__white" id="checker__white--12"></div>
-            </div>
-            <div class="board__square--red" id= "square__6-2">
-
-            </div>
-            <div class="board__square--black" id= "square__6-3">
-                <div class="checker__white" id="checker__white--11"></div>
-            </div>
-            <div class="board__square--red" id= "square__6-4">
-
-            </div>
-            <div class="board__square--black" id= "square__6-5">
-                <div class="checker__white" id="checker__white--10"></div>
-            </div>
-            <div class="board__square--red" id= "square__6-6">
-
-            </div>
-            <div class="board__square--black" id= "square__6-7">
-                <div class="checker__white" id="checker__white--9"></div>
-            </div>
-            <div class="board__square--red" id= "square__6-8">
-
-            </div>
-            <div class="board__square--red" id= "square__7-1">
-
-            </div>
-            <div class="board__square--black" id= "square__7-2">
-                <div class="checker__white" id="checker__white--8"></div>
-            </div>
-            <div class="board__square--red" id= "square__7-3">
-
-            </div>
-            <div class="board__square--black" id= "square__7-4">
-                <div class="checker__white" id="checker__white--7"></div>
-            </div>
-            <div class="board__square--red" id= "square__7-5">
-
-            </div>
-            <div class="board__square--black" id= "square__7-6">
-                <div class="checker__white" id="checker__white--6"></div>
-            </div>
-            <div class="board__square--red" id= "square__7-7">
-
-            </div>
-            <div class="board__square--black" id= "square__7-8">
-                <div class="checker__white" id="checker__white--5"></div>
-            </div>
-            <div class="board__square--black" id= "square__8-1">
-                <div class="checker__white" id="checker__white--4"></div>
-            </div>
-            <div class="board__square--red" id= "square__8-2">
-
-            </div>
-            <div class="board__square--black" id= "square__8-3">
-                <div class="checker__white" id="checker__white--3"></div>
-            </div>
-            <div class="board__square--red" id= "square__8-4">
-
-            </div>
-            <div class="board__square--black" id= "square__8-5">
-                <div class="checker__white" id="checker__white--2"></div>
-            </div>
-            <div class="board__square--red" id= "square__8-6">
-
-            </div>
-            <div class="board__square--black" id= "square__8-7">
-                <div class="checker__white" id="checker__white--1"></div>
-            </div>
-            <div class="board__square--red" id= "square__8-8">
-
-            </div>
-
+      <div class="board" id="board">
+        <div class="board__square red" id="0-0"></div>
+        <div class="board__square black" data-black id="0-1">
+          <div class="checker red" id="red-0"></div>
         </div>
-        
-    </div>
-</body>
+        <div class="board__square red" id="0-2"></div>
+        <div class="board__square black" data-black id="0-3">
+          <div class="checker red" id="red-1"></div>
+        </div>
+        <div class="board__square red" id="0-4"></div>
+        <div class="board__square black" data-black id="0-5">
+          <div class="checker red" id="red-2"></div>
+        </div>
+        <div class="board__square red" id="0-6"></div>
+        <div class="board__square black" data-black id="0-7">
+          <div class="checker red" id="red-3"></div>
+        </div>
 
+        <div class="board__square black" data-black id="1-0">
+          <div class="checker red" id="red-4"></div>
+        </div>
+        <div class="board__square red" id="1-1"></div>
+        <div class="board__square black" data-black id="1-2">
+          <div class="checker red" id="red-5"></div>
+        </div>
+        <div class="board__square red" id="1-3"></div>
+        <div class="board__square black" data-black id="1-4">
+          <div class="checker red" id="red-6"></div>
+        </div>
+        <div class="board__square red" id="1-5"></div>
+        <div class="board__square black" data-black id="1-6">
+          <div class="checker red" id="red-7"></div>
+        </div>
+        <div class="board__square red" id="1-7"></div>
+
+        <div class="board__square red" id="2-0"></div>
+        <div class="board__square black" data-black id="2-1">
+          <div class="checker red" id="red-8"></div>
+        </div>
+        <div class="board__square red" id="2-2"></div>
+        <div class="board__square black" data-black id="2-3">
+          <div class="checker red" id="red-9"></div>
+        </div>
+        <div class="board__square red" id="2-4"></div>
+        <div class="board__square black" data-black id="2-5">
+          <div class="checker red" id="red-10"></div>
+        </div>
+        <div class="board__square red" id="2-6"></div>
+        <div class="board__square black" data-black id="2-7">
+          <div class="checker red" id="red-11"></div>
+        </div>
+
+        <div class="board__square black" data-black id="3-0"></div>
+        <div class="board__square red" id="3-1"></div>
+        <div class="board__square black" data-black id="3-2"></div>
+        <div class="board__square red" id="3-3"></div>
+        <div class="board__square black" data-black id="3-4"></div>
+        <div class="board__square red" id="3-5"></div>
+        <div class="board__square black" data-black id="3-6"></div>
+        <div class="board__square red" id="3-7"></div>
+
+        <div class="board__square red" id="4-0"></div>
+        <div class="board__square black" data-black id="4-1"></div>
+        <div class="board__square red" id="4-2"></div>
+        <div class="board__square black" data-black id="4-3"></div>
+        <div class="board__square red" id="4-4"></div>
+        <div class="board__square black" data-black id="4-5"></div>
+        <div class="board__square red" id="4-6"></div>
+        <div class="board__square black" data-black id="4-7"></div>
+
+        <div class="board__square black" data-black id="5-0">
+          <div class="checker white" id="white-11"></div>
+        </div>
+        <div class="board__square red" id="5-1"></div>
+        <div class="board__square black" data-black id="5-2">
+          <div class="checker white" id="white-10"></div>
+        </div>
+        <div class="board__square red" id="5-3"></div>
+        <div class="board__square black" data-black id="5-4">
+          <div class="checker white" id="white-9"></div>
+        </div>
+        <div class="board__square red" id="5-5"></div>
+        <div class="board__square black" data-black id="5-6">
+          <div class="checker white" id="white-8"></div>
+        </div>
+        <div class="board__square red" id="5-7"></div>
+
+        <div class="board__square red" id="6-0"></div>
+        <div class="board__square black" data-black id="6-1">
+          <div class="checker white" id="white-7"></div>
+        </div>
+        <div class="board__square red" id="6-2"></div>
+        <div class="board__square black" data-black id="6-3">
+          <div class="checker white" id="white-6"></div>
+        </div>
+        <div class="board__square red" id="6-4"></div>
+        <div class="board__square black" data-black id="6-5">
+          <div class="checker white" id="white-5"></div>
+        </div>
+        <div class="board__square red" id="6-6"></div>
+        <div class="board__square black" data-black id="6-7">
+          <div class="checker white" id="white-4"></div>
+        </div>
+
+        <div class="board__square black" data-black id="7-0">
+          <div class="checker white" id="white-3"></div>
+        </div>
+        <div class="board__square red" id="7-1"></div>
+        <div class="board__square black" data-black id="7-2">
+          <div class="checker white" id="white-2"></div>
+        </div>
+        <div class="board__square red" id="7-3"></div>
+        <div class="board__square black" data-black id="7-4">
+          <div class="checker white" id="white-1"></div>
+        </div>
+        <div class="board__square red" id="7-5"></div>
+        <div class="board__square black" data-black id="7-6">
+          <div class="checker white" id="white-0"></div>
+        </div>
+        <div class="board__square red" id="7-7"></div>
+      </div>
+    </div>
+  </body>
 </html>

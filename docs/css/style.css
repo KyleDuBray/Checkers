@@ -25,28 +25,34 @@ html {
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
   box-shadow: 5px 5px 8px #b4b1b118; }
+  .board__square.red {
+    background-color: rgba(255, 0, 0, 0.329); }
+  .board__square.black {
+    background-color: rgba(0, 0, 0, 0.37); }
+    .board__square.black.avail {
+      cursor: pointer; }
 
-.board__square--red {
-  background-color: rgba(255, 0, 0, 0.329); }
-
-.board__square--black {
-  background-color: rgba(0, 0, 0, 0.37); }
-
-.checker__white {
+.checker {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: white; }
-
-.checker__red {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #cf0000;
   z-index: 1000; }
+  .checker.white {
+    background-color: white; }
+  .checker.red {
+    background-color: #cf0000; }
+
+.board.white .board__square.black .checker.white.selectable:hover,
+.board.red .board__square.black .checker.red.selectable:hover,
+.board .board__square.black.selectable:hover {
+  cursor: pointer; }
+
+.board.white .board__square.black .checker.red:hover,
+.board.red .board__square.black .checker.white:hover {
+  cursor: not-allowed; }
 
 .selected {
-  background-color: yellow; }
+  background-color: yellow !important; }
 
 header {
   height: 10vh;

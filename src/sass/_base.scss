@@ -1,23 +1,23 @@
-
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
-  
+
 html {
-    box-sizing: border-box;
-    background-color: white;
-    font-size: 62.5%;
-    text-rendering: optimizeLegibility;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url(../img/background.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  box-sizing: border-box;
+  background-color: white;
+  font-size: 62.5%;
+  text-rendering: optimizeLegibility;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+    url(../img/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .heading__main {
-    color: rgba(245, 245, 245, 0.774)
+  color: rgba(245, 245, 245, 0.774);
 }
