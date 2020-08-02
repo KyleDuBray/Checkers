@@ -70,7 +70,7 @@ export default class CheckersView extends Checkers {
         this.gameOver = true;
       }
     }
-    if (this.gameOver === false) {
+    if (!this.gameOver) {
       this.DOMstate.selectableCheckers.forEach((ele) => {
         ele.classList.add(this.styleElements.SELECTABLE);
         ele.addEventListener("click", this.selectClick);
@@ -98,7 +98,7 @@ export default class CheckersView extends Checkers {
     if (jumpCoords.length > 0) {
       console.log("jumpable: ");
       jumpCoords.forEach((coord) => {
-        console.log(this.convertCoordToSpace(coord));
+        console.log(coord);
         this.DOMstate.selectableCheckers.push(this.convertCoordToSpace(coord));
       });
       return true;
@@ -115,7 +115,6 @@ export default class CheckersView extends Checkers {
       console.log("movable: ");
       moveCoords.forEach((coord) => {
         console.log(coord);
-        console.log(this.convertCoordToSpace(coord));
         this.DOMstate.selectableCheckers.push(this.convertCoordToSpace(coord));
       });
       return true;
@@ -133,7 +132,7 @@ export default class CheckersView extends Checkers {
       // Make clicked checker selected
       const cur = e.target;
       this.setSelected(this.convertSpacetoCoord(cur));
-      console.log(this.DOMstate.selected);
+      console.log(`selected:${this.DOMstate.selected}`);
     }
   }
 
@@ -173,7 +172,7 @@ export default class CheckersView extends Checkers {
     let moves = super.getMoves();
 
     // If jumps available, add event listeners, selectable class
-    if (jumps.length > 1) {
+    if (jumps.length > 0) {
       console.log("Jumps:");
       jumps.forEach((coord) => {
         console.log(coord);
@@ -202,9 +201,15 @@ export default class CheckersView extends Checkers {
 
   jump(e) {
     let cur = e.target;
+    //If jump successful
     if (super.jump(this.convertSpacetoCoord(cur))) {
+      // Transfer checker to new spot
       this.DOMstate.selected.parentElement.removeChild(this.DOMstate.selected);
       cur.appendChild(this.DOMstate.selected);
+      // Remove jumped checker
+      console.log(`JUMPED: ${super.getJumpedCoord(this.state.selected,
+        this.convertSpacetoCoord(cur))}`);
+
       this.clearSelectState();
       super.setSelected(this.convertSpacetoCoord(cur));
     }
@@ -212,11 +217,16 @@ export default class CheckersView extends Checkers {
 
   move(e) {
     let cur = e.target;
+    // If move successful
     if (super.move(this.convertSpacetoCoord(cur))) {
+      // Transfer moved checker
       this.DOMstate.selected.parentElement.removeChild(this.DOMstate.selected);
       cur.appendChild(this.DOMstate.selected);
+      // Clear turn state
       this.clearTurnState();
+      // Swap turn
       this.setTurn();
+      // Set up for next selection
       this.makeSelection();
     }
   }

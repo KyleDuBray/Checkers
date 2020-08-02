@@ -210,8 +210,10 @@ export default class Checkers {
       for (var j = 0; j < this.state.boardArray[i].length; j++) {
         let cur = [i, j];
         let type = this.getCoordType(cur);
-        if (this.canJump(cur, type)) {
-          arr.push(cur);
+        if (this.typeMatchTurn(type)) {
+          if (this.canJump(cur, type)) {
+            arr.push(cur);
+          }
         }
       }
     }
