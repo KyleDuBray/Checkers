@@ -83,7 +83,18 @@ export default class Checkers {
 
   move(coord) {
     let cur = this.getSelected();
+    let curType = this.getCoordType(cur);
+    // If current selection
     if (cur !== -1) {
+      // If destination is king spot
+      if (this.isKingable(coord, curType)) {
+        if (curType === this.REDCHECKER) {
+          this.state.boardArray[cur[0]][cur[1]] = this.REDKING;
+        } else if (curType === this.WHITECHECKER) {
+          this.state.boardArray[cur[0]][cur[1]] = this.WHITEKING;
+        }
+      }
+      // MAke board changes
       this.state.boardArray[coord[0]][coord[1]] = this.getCoordType(cur);
       this.state.boardArray[cur[0]][cur[1]] = this.OPENSPACE;
       return true;
@@ -93,7 +104,18 @@ export default class Checkers {
 
   jump(coord) {
     let cur = this.getSelected();
+    let curType = this.getCoordType(cur);
+    // If current selection
     if (cur !== -1) {
+      // If destination is king spot
+      if (this.isKingable(coord, curType)) {
+        if (curType === this.REDCHECKER) {
+          this.state.boardArray[cur[0]][cur[1]] = this.REDKING;
+        } else if (curType === this.WHITECHECKER) {
+          this.state.boardArray[cur[0]][cur[1]] = this.WHITEKING;
+        }
+      }
+      // Make board changes
       this.state.boardArray[coord[0]][coord[1]] = this.getCoordType(cur);
       this.state.boardArray[cur[0]][cur[1]] = this.OPENSPACE;
       let jumped = this.getJumpedCoord(cur, coord);
@@ -102,6 +124,15 @@ export default class Checkers {
       return true;
     }
     return false;
+  }
+
+  // IN: coord in [int x, int y] form of destination, type of coord
+  // OUT: TRUE if checker should be kinged at that location
+  isKingable(coord, type) {
+    return (
+      (coord[0] === 0 && type === this.WHITECHECKER) ||
+      (coord[0] === 7 && type === this.REDCHECKER)
+    );
   }
 
   /***************UTILITIES******************************************************/
