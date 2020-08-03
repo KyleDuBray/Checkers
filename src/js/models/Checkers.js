@@ -86,7 +86,6 @@ export default class Checkers {
     if (cur !== -1) {
       this.state.boardArray[coord[0]][coord[1]] = this.getCoordType(cur);
       this.state.boardArray[cur[0]][cur[1]] = this.OPENSPACE;
-      console.log(this.state.boardArray);
       return true;
     }
     return false;
@@ -283,161 +282,182 @@ export default class Checkers {
   // IN: coordinate in [int x, int y] form, string type of checker
   // OUT: boolean representing whether checker can move down left or not
   canDownLeftMove(coord, type) {
-    switch (type) {
-      case this.REDKING:
-      case this.REDCHECKER:
-      case this.WHITEKING:
-        return this.state.boardArray[coord[0] + 1][coord[1] - 1] ===
-          this.OPENSPACE
-          ? true
-          : false;
+    if (this.isWithinBounds(this.getDownLeftMove(coord))) {
+      switch (type) {
+        case this.REDKING:
+        case this.REDCHECKER:
+        case this.WHITEKING:
+          return (
+            this.state.boardArray[coord[0] + 1][coord[1] - 1] === this.OPENSPACE
+          );
+      }
     }
+
     return false;
   }
 
   // IN: coordinate in [int x, int y] form, string type of checker
   // OUT: boolean representing whether checker can move down right or not
   canDownRightMove(coord, type) {
-    switch (type) {
-      case this.REDKING:
-      case this.REDCHECKER:
-      case this.WHITEKING:
-        return this.state.boardArray[coord[0] + 1][coord[1] + 1] ===
-          this.OPENSPACE
-          ? true
-          : false;
+    if (this.isWithinBounds(this.getDownRightMove(coord))) {
+      switch (type) {
+        case this.REDKING:
+        case this.REDCHECKER:
+        case this.WHITEKING:
+          return (
+            this.state.boardArray[coord[0] + 1][coord[1] + 1] === this.OPENSPACE
+          );
+      }
+      return false;
     }
-    return false;
   }
 
   // IN: coordinate in [int x, int y] form, string type of checker
   // OUT: boolean representing whether checker can move up left or not
   canUpLeftMove(coord, type) {
-    switch (type) {
-      case this.REDKING:
-      case this.WHITECHECKER:
-      case this.WHITEKING:
-        return this.state.boardArray[coord[0] - 1][coord[1] - 1] ===
-          this.OPENSPACE
-          ? true
-          : false;
+    if (this.isWithinBounds(this.getUpLeftMove(coord))) {
+      switch (type) {
+        case this.REDKING:
+        case this.WHITECHECKER:
+        case this.WHITEKING:
+          return (
+            this.state.boardArray[coord[0] - 1][coord[1] - 1] === this.OPENSPACE
+          );
+      }
+      return false;
     }
-    return false;
   }
 
   // IN: coordinate in [int x, int y] form, string type of checker
   // OUT: boolean representing whether checker can move up right or not
   canUpRightMove(coord, type) {
-    switch (type) {
-      case this.REDKING:
-      case this.WHITECHECKER:
-      case this.WHITEKING:
-        return this.state.boardArray[coord[0] - 1][coord[1] + 1] ===
-          this.OPENSPACE
-          ? true
-          : false;
+    if (this.isWithinBounds(this.getUpRightMove(coord))) {
+      switch (type) {
+        case this.REDKING:
+        case this.WHITECHECKER:
+        case this.WHITEKING:
+          return (
+            this.state.boardArray[coord[0] - 1][coord[1] + 1] === this.OPENSPACE
+          );
+      }
+      return false;
     }
-    return false;
   }
 
   // IN: coordinate in [int x, int y] form, string type of checker
   // OUT: boolean representing whether checker can jump down left or not
   canDownLeftJump(coord, type) {
-    switch (type) {
-      case this.REDKING:
-      case this.REDCHECKER:
-        return (this.state.boardArray[coord[0] + 1][coord[1] - 1] ===
-          this.WHITECHECKER ||
-          this.state.boardArray[coord[0] + 1][coord[1] - 1] ===
-            this.WHITEKING) &&
-          this.state.boardArray[coord[0] + 2][coord[1] - 2] === this.OPENSPACE
-          ? true
-          : false;
+    if (this.isWithinBounds(this.getDownLeftJump(coord))) {
+      switch (type) {
+        case this.REDKING:
+        case this.REDCHECKER:
+          return (
+            (this.state.boardArray[coord[0] + 1][coord[1] - 1] ===
+              this.WHITECHECKER ||
+              this.state.boardArray[coord[0] + 1][coord[1] - 1] ===
+                this.WHITEKING) &&
+            this.state.boardArray[coord[0] + 2][coord[1] - 2] === this.OPENSPACE
+          );
 
-      case this.WHITEKING:
-        return (this.state.boardArray[coord[0] + 1][coord[1] - 1] ===
-          this.REDCHECKER ||
-          this.state.boardArray[coord[0] + 1][coord[1] - 1] === this.REDKING) &&
-          this.state.boardArray[coord[0] + 2][coord[1] - 2] === this.OPENSPACE
-          ? true
-          : false;
+        case this.WHITEKING:
+          return (
+            (this.state.boardArray[coord[0] + 1][coord[1] - 1] ===
+              this.REDCHECKER ||
+              this.state.boardArray[coord[0] + 1][coord[1] - 1] ===
+                this.REDKING) &&
+            this.state.boardArray[coord[0] + 2][coord[1] - 2] === this.OPENSPACE
+          );
+      }
+      return false;
     }
-    return false;
   }
 
   // IN: coordinate in [int x, int y] form, string type of checker
   // OUT: boolean representing whether checker can jump down right or not
   canDownRightJump(coord, type) {
-    switch (type) {
-      case this.REDKING:
-      case this.REDCHECKER:
-        return (this.state.boardArray[coord[0] + 1][coord[1] + 1] ===
-          this.WHITECHECKER ||
-          this.state.boardArray[coord[0] + 1][coord[1] + 1] ===
-            this.WHITEKING) &&
-          this.state.boardArray[coord[0] + 2][coord[1] + 2] === this.OPENSPACE
-          ? true
-          : false;
+    if (this.isWithinBounds(this.getDownRightJump(coord))) {
+      switch (type) {
+        case this.REDKING:
+        case this.REDCHECKER:
+          return (
+            (this.state.boardArray[coord[0] + 1][coord[1] + 1] ===
+              this.WHITECHECKER ||
+              this.state.boardArray[coord[0] + 1][coord[1] + 1] ===
+                this.WHITEKING) &&
+            this.state.boardArray[coord[0] + 2][coord[1] + 2] === this.OPENSPACE
+          );
 
-      case this.WHITEKING:
-        return (this.state.boardArray[coord[0] + 1][coord[1] + 1] ===
-          this.REDCHECKER ||
-          this.state.boardArray[coord[0] + 1][coord[1] + 1] === this.REDKING) &&
-          this.state.boardArray[coord[0] + 2][coord[1] + 2] === this.OPENSPACE
-          ? true
-          : false;
+        case this.WHITEKING:
+          return (
+            (this.state.boardArray[coord[0] + 1][coord[1] + 1] ===
+              this.REDCHECKER ||
+              this.state.boardArray[coord[0] + 1][coord[1] + 1] ===
+                this.REDKING) &&
+            this.state.boardArray[coord[0] + 2][coord[1] + 2] === this.OPENSPACE
+          );
+      }
+      return false;
     }
-    return false;
   }
 
   // IN: coordinate in [int x, int y] form, string type of checker
   // OUT: boolean representing whether checker can jump up left or not
   canUpLeftJump(coord, type) {
-    switch (type) {
-      case this.REDKING:
-        return (this.state.boardArray[coord[0] - 1][coord[1] - 1] ===
-          this.WHITECHECKER ||
-          this.state.boardArray[coord[0] - 1][coord[1] - 1] ===
-            this.WHITEKING) &&
-          this.state.boardArray[coord[0] - 2][coord[1] - 2] === this.OPENSPACE
-          ? true
-          : false;
+    if (this.isWithinBounds(this.getUpLeftJump(coord))) {
+      switch (type) {
+        case this.REDKING:
+          return (
+            (this.state.boardArray[coord[0] - 1][coord[1] - 1] ===
+              this.WHITECHECKER ||
+              this.state.boardArray[coord[0] - 1][coord[1] - 1] ===
+                this.WHITEKING) &&
+            this.state.boardArray[coord[0] - 2][coord[1] - 2] === this.OPENSPACE
+          );
 
-      case this.WHITEKING:
-      case this.WHITECHECKER:
-        return (this.state.boardArray[coord[0] - 1][coord[1] - 1] ===
-          this.REDCHECKER ||
-          this.state.boardArray[coord[0] - 1][coord[1] - 1] === this.REDKING) &&
-          this.state.boardArray[coord[0] - 2][coord[1] - 2] === this.OPENSPACE
-          ? true
-          : false;
+        case this.WHITEKING:
+        case this.WHITECHECKER:
+          return (
+            (this.state.boardArray[coord[0] - 1][coord[1] - 1] ===
+              this.REDCHECKER ||
+              this.state.boardArray[coord[0] - 1][coord[1] - 1] ===
+                this.REDKING) &&
+            this.state.boardArray[coord[0] - 2][coord[1] - 2] === this.OPENSPACE
+          );
+      }
+      return false;
     }
-    return false;
   }
 
   // IN: coordinate in [int x, int y] form, string type of checker
   // OUT: boolean representing whether checker can jump up right or not
   canUpRightJump(coord, type) {
-    switch (type) {
-      case this.REDKING:
-        return (this.state.boardArray[coord[0] - 1][coord[1] + 1] ===
-          this.WHITECHECKER ||
-          this.state.boardArray[coord[0] - 1][coord[1] + 1] ===
-            this.WHITEKING) &&
-          this.state.boardArray[coord[0] - 2][coord[1] + 2] === this.OPENSPACE
-          ? true
-          : false;
+    if (this.isWithinBounds(this.getUpRightJump(coord))) {
+      switch (type) {
+        case this.REDKING:
+          return (
+            (this.state.boardArray[coord[0] - 1][coord[1] + 1] ===
+              this.WHITECHECKER ||
+              this.state.boardArray[coord[0] - 1][coord[1] + 1] ===
+                this.WHITEKING) &&
+            this.state.boardArray[coord[0] - 2][coord[1] + 2] === this.OPENSPACE
+          );
 
-      case this.WHITEKING:
-      case this.WHITECHECKER:
-        return (this.state.boardArray[coord[0] - 1][coord[1] + 1] ===
-          this.REDCHECKER ||
-          this.state.boardArray[coord[0] - 1][coord[1] + 1] === this.REDKING) &&
-          this.state.boardArray[coord[0] - 2][coord[1] + 2] === this.OPENSPACE
-          ? true
-          : false;
+        case this.WHITEKING:
+        case this.WHITECHECKER:
+          return (
+            (this.state.boardArray[coord[0] - 1][coord[1] + 1] ===
+              this.REDCHECKER ||
+              this.state.boardArray[coord[0] - 1][coord[1] + 1] ===
+                this.REDKING) &&
+            this.state.boardArray[coord[0] - 2][coord[1] + 2] === this.OPENSPACE
+          );
+      }
+      return false;
     }
-    return false;
+  }
+
+  isWithinBounds(coord) {
+    return coord[0] > -1 && coord[0] < 8 && coord[1] > -1 && coord[1] < 8;
   }
 
   // IN: coordinate in [int x, int y] form

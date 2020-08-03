@@ -132,7 +132,7 @@ export default class CheckersView extends Checkers {
       // Make clicked checker selected
       const cur = e.target;
       this.setSelected(this.convertSpacetoCoord(cur));
-      console.log(`selected:${this.DOMstate.selected}`);
+      console.log(this.DOMstate.selected);
     }
   }
 
@@ -160,6 +160,7 @@ export default class CheckersView extends Checkers {
   setSelected(coord) {
     // Set selected on parent class derive DOM node from coord
     super.setSelected(coord);
+    // If current selected isn't null, set DOMstate selected
     if (coord !== -1) {
       this.DOMstate.selected = this.convertCoordToChecker(this.state.selected);
       this.DOMstate.selected.classList.add(this.styleElements.SELECTED);
@@ -200,18 +201,39 @@ export default class CheckersView extends Checkers {
   /*******************JUMP/MOVE EXECUTION********************************************************/
 
   jump(e) {
-    let cur = e.target;
+    let destCoord = this.convertSpacetoCoord(e.target);
     //If jump successful
-    if (super.jump(this.convertSpacetoCoord(cur))) {
+    if (super.jump(destCoord)) {
       // Transfer checker to new spot
       this.DOMstate.selected.parentElement.removeChild(this.DOMstate.selected);
-      cur.appendChild(this.DOMstate.selected);
+      e.target.appendChild(this.DOMstate.selected);
       // Remove jumped checker
-      console.log(`JUMPED: ${super.getJumpedCoord(this.state.selected,
-        this.convertSpacetoCoord(cur))}`);
+      this.convertCoordToSpace(
+        super.getJumpedCoord(this.state.selected, destCoord)
+      ).removeChild(
+        this.convertCoordToChecker(
+          super.getJumpedCoord(this.state.selected, destCoord)
+        )
+      );
+      console.log(
+        `JUMPED: ${super.getJumpedCoord(this.state.selected, destCoord)}`
+      );
 
       this.clearSelectState();
-      super.setSelected(this.convertSpacetoCoord(cur));
+      this.setSelected(destCoord);
+      // If Double jump possible, keep selection.
+      super.setJumps();
+      if (super.getJumps().length > 0) {
+        console.log("double");
+        this;
+      } else {
+        // Clear turn state
+        this.clearTurnState();
+        // Swap turn
+        this.setTurn();
+        // Set up for next selection
+        this.makeSelection();
+      }
     }
   }
 
