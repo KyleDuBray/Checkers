@@ -1,12 +1,12 @@
 {
-  "name": "proj2",
+  "name": "checkers",
   "version": "1.0.0",
-  "description": "A web application",
+  "description": "A checkers web application",
   "main": "index.js",
   "homepage": "DuBrowski.github.io/Checkers",
   "scripts": {
     "watch:sass": "node-sass src/sass/main.scss docs/css/style.css -w",
-    "compile:sass": "node-sass src/sass/main.scss docs/css/style.comp.css",
+    "compile:sass": "node-sass src/sass/main.scss docs/css/style.css",
     "concat:css": "concat -o docs/css/style.concat.css docs/css/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' docs/css/style.concat.css -o docs/css/style.prefix.css",
     "compress:css": "node-sass docs/css/style.prefix.css docs/css/style.css --output-style compressed",
