@@ -9,5 +9,4 @@ class GameManager {}
   game.init();
   game.setTurn();
   game.makeSelection();
-  console.log(game.state.boardArray);
 }
