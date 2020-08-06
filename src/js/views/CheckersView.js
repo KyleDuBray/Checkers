@@ -14,11 +14,17 @@ export default class CheckersView extends Checkers {
       SELECTABLE: "selectable",
       SELECTED: "selected",
     };
+    this.winningMessage = document.querySelector(".winning-message");
+    this.winningMessageText = document.querySelector(
+      "[data-winning-message-text]"
+    );
+    this.restartBtn = document.getElementById("restart-btn");
 
     // Event Handler Binds
     this.selectClick = this.selectClick.bind(this);
     this.jump = this.jump.bind(this);
     this.move = this.move.bind(this);
+    this.restart = this.restart.bind(this);
   }
 
   /*******************GAME INITIALIZE********************************************************/
@@ -67,6 +73,11 @@ export default class CheckersView extends Checkers {
         console.log(
           `${this.getTurn() === "red" ? "WHITE WINS!" : "RED WINS!"}`
         );
+        this.winningMessageText.innerHTML = `${
+          this.getTurn() === "red" ? "WHITE WINS!" : "RED WINS!"
+        }`;
+        this.winningMessage.classList.add("show");
+        this.restartBtn.addEventListener("click", this.restart);
         this.gameOver = true;
       }
     }
@@ -76,6 +87,13 @@ export default class CheckersView extends Checkers {
         ele.addEventListener("click", this.selectClick);
       });
     }
+  }
+
+  restart() {
+    this.winningMessage.classList.remove("show");
+    this.init();
+    this.setTurn();
+    this.makeSelection();
   }
 
   clearTurnState() {
