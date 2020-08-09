@@ -1,0 +1,25 @@
+/* When the width is between 600px and 900px OR above 1100px - 
+ */
+@media screen and (max-width: 900px) and (min-width: 600px),
+  (min-width: 1100px) {
+}
+
+@media screen and (max-width: 600px) {
+  .board {
+    height: 100%;
+  }
+  .interface {
+    height: 100vh;
+  }
+
+  @include fSize;
+
+  /* header disappear
+  header {
+    height: 0vh;
+  }
+  .heading__main {
+    display: none;
+  }
+  */
+}

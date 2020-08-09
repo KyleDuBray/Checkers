@@ -11,13 +11,12 @@ html {
   background-color: white;
   font-size: 62.5%;
   text-rendering: optimizeLegibility;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
-    url(../img/background.jpg);
+
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 .heading__main {
-  color: rgba(245, 245, 245, 0.774);
+  color: rgb(0, 0, 0);
 }

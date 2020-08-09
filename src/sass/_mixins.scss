@@ -4,3 +4,17 @@
   border-radius: 50%;
   z-index: 1000;
 }
+
+@mixin fSize {
+  h1 {
+    font-size: 5vw;
+  }
+
+  h2 {
+    font-size: 4vw;
+  }
+
+  h3 {
+    font-size: 3vw;
+  }
+}

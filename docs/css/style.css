@@ -10,13 +10,12 @@ html {
   background-color: white;
   font-size: 62.5%;
   text-rendering: optimizeLegibility;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(../img/background.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed; }
 
 .heading__main {
-  color: rgba(245, 245, 245, 0.774); }
+  color: black; }
 
 .board {
   width: 90vw;
@@ -24,9 +23,10 @@ html {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  box-shadow: 5px 5px 8px #b4b1b118; }
+  border: thin;
+  box-shadow: 5px 5px 8px #94949418; }
   .board__square.red {
-    background-color: rgba(255, 0, 0, 0.329); }
+    background-color: rgba(218, 218, 218, 0.096); }
   .board__square.black {
     background-color: rgba(0, 0, 0, 0.37); }
     .board__square.black.avail {
@@ -40,7 +40,7 @@ html {
   .checker.white {
     background-color: white; }
   .checker.red {
-    background-color: #cf0000; }
+    background-color: red; }
 
 .board.white .board__square.black .checker.white.selectable:hover,
 .board.red .board__square.black .checker.red.selectable:hover,
@@ -55,10 +55,9 @@ html {
   background-color: yellow !important; }
 
 header {
-  height: 10vh;
+  height: auto;
   width: 100vw;
-  text-align: center;
-  padding-top: 2rem; }
+  text-align: center; }
 
 h1 {
   font-family: 'Arvo', serif;
@@ -205,3 +204,25 @@ NOT CURRENTLY USED- Chat box
       border-color: white; }
   .winning-message.show {
     display: flex; }
+
+/* When the width is between 600px and 900px OR above 1100px - 
+ */
+@media screen and (max-width: 600px) {
+  .board {
+    height: 100%; }
+  .interface {
+    height: 100vh; }
+  h1 {
+    font-size: 5vw; }
+  h2 {
+    font-size: 4vw; }
+  h3 {
+    font-size: 3vw; }
+  /* header disappear
+  header {
+    height: 0vh;
+  }
+  .heading__main {
+    display: none;
+  }
+  */ }
