@@ -71,6 +71,15 @@ h3 {
   font-family: 'Arvo', serif;
   font-size: 2rem; }
 
+h1 {
+  font-size: 5vw; }
+
+h2 {
+  font-size: 4vw; }
+
+h3 {
+  font-size: 3vw; }
+
 /*********************************************
 NOT CURRENTLY USED- Chat box
 *********************************************/
@@ -205,24 +214,18 @@ NOT CURRENTLY USED- Chat box
   .winning-message.show {
     display: flex; }
 
-/* When the width is between 600px and 900px OR above 1100px - 
+/* EX: When the width is between 600px and 900px OR above 1100px - 
  */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) and (max-height: 600px) {
   .board {
     height: 100%; }
   .interface {
-    height: 100vh; }
+    height: 100vh; } }
+
+@media screen and (max-height: 400px) {
   h1 {
-    font-size: 5vw; }
-  h2 {
-    font-size: 4vw; }
-  h3 {
-    font-size: 3vw; }
-  /* header disappear
-  header {
-    height: 0vh;
-  }
-  .heading__main {
-    display: none;
-  }
-  */ }
+    display: none; }
+  .interface {
+    height: 100vh; }
+  .board {
+    height: 100%; } }
