@@ -59,6 +59,33 @@ header {
   width: 100vw;
   text-align: center; }
 
+.navbar {
+  display: flex;
+  margin-bottom: 4px;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgba(199, 199, 199, 0.219);
+  box-shadow: 4px 7px 9px -3px rgba(0, 0, 0, 0.75); }
+
+ul {
+  list-style-type: none;
+  display: flex; }
+
+li {
+  font-size: 100%;
+  margin: 0 10rem;
+  display: flex;
+  align-items: flex-end; }
+
+a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 175%;
+  color: black; }
+  a.main {
+    font-size: 250%;
+    font-weight: 500; }
+
 h1 {
   font-family: 'Arvo', serif;
   font-size: 5rem; }
@@ -220,7 +247,9 @@ NOT CURRENTLY USED- Chat box
   .board {
     height: 100%; }
   .interface {
-    height: 100vh; } }
+    height: 100vh; }
+  li {
+    margin: 0 2rem; } }
 
 @media screen and (max-height: 400px) {
   h1 {

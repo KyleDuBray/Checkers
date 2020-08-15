@@ -11,9 +11,13 @@
   .interface {
     height: 100vh;
   }
+
+  li {
+    margin: 0 2rem;
+  }
 }
 
-@media screen and (max-height:400px) {
+@media screen and (max-height: 400px) {
   h1 {
     display: none;
   }
