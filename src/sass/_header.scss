@@ -31,8 +31,29 @@ a {
   font-family: "Montserrat", sans-serif;
   font-size: 175%;
   color: black;
+  &.rules {
+    position: relative;
+  }
   &.main {
     font-size: 250%;
     font-weight: 500;
   }
+}
+
+// TEST: hover text box effect
+span {
+  display: flex;
+  width: 1000%;
+  background: none repeat scroll 0 0 #f8f8f8;
+  border: 5px solid #dfdfdf;
+  color: #717171;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  display: none;
+  padding: 0 20px;
+}
+
+a:hover span {
+  display: flex;
 }

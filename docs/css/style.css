@@ -82,9 +82,26 @@ a {
   font-family: "Montserrat", sans-serif;
   font-size: 175%;
   color: black; }
+  a.rules {
+    position: relative; }
   a.main {
     font-size: 250%;
     font-weight: 500; }
+
+span {
+  display: flex;
+  width: 1000%;
+  background: none repeat scroll 0 0 #f8f8f8;
+  border: 5px solid #dfdfdf;
+  color: #717171;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  display: none;
+  padding: 0 20px; }
+
+a:hover span {
+  display: flex; }
 
 h1 {
   font-family: 'Arvo', serif;
@@ -246,6 +263,14 @@ NOT CURRENTLY USED- Chat box
 @media screen and (max-width: 720px) {
   li {
     margin: 0 2rem; } }
+
+@media screen and (max-width: 640px) {
+  span {
+    width: 750%; } }
+
+@media screen and (max-width: 400px) {
+  span {
+    width: 500%; } }
 
 @media screen and (max-width: 600px) and (max-height: 600px) {
   .board {
